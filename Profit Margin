@@ -88,8 +88,14 @@ public class ProfitMargin {
         double percentage;
         int otherExpanses = 43887;
         
-        netProfit = (double)(revenue(year) - modal(year) - otherExpanses);
-        percentage = (netProfit / revenue(year)) * (double)100;
+        if (modal(year) == 0) {
+            netProfit = 0;
+            percentage = 0;
+        }
+        else {
+            netProfit = (double)(revenue(year) - modal(year) - otherExpanses);
+            percentage = (netProfit / revenue(year)) * (double)100;
+        }
         
         System.out.println("______________________________");
         System.out.printf("|      Year     | %10s |\n", year);
